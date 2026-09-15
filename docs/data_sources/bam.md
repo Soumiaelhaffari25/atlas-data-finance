@@ -1,52 +1,42 @@
-\# Fiche Source — Bank Al-Maghrib (BAM)
+FICHE SOURCE - Bank Al-Maghrib (BAM)
 
 
 
-\## Identification
+Organisme source : Bank Al-Maghrib (BAM)
 
-\- \*\*Organisme source\*\* : Bank Al-Maghrib (BAM)
+URL / API : https://data.gov.ma/data/fr/organization/bank-al-maghrib (Open Data) + https://apihelpdesk.centralbankofmorocco.ma/ (API developpeurs)
 
-\- \*\*URL / API\*\* : https://data.gov.ma/data/fr/organization/bank-al-maghrib (Open Data) + https://apihelpdesk.centralbankofmorocco.ma/ (API développeurs)
-
-\- \*\*Description\*\* : Banque centrale du Maroc. Publie des séries historiques sur le crédit bancaire, les agrégats monétaires, le patrimoine de BAM, et une API pour des données comme les adjudications de Bons du Trésor.
+Description : Banque centrale du Maroc. Publie des series historiques sur le credit bancaire, les agregats monetaires, le patrimoine de BAM, et une API pour des donnees comme les adjudications de Bons du Tresor.
 
 
 
-\## Données
+Variables disponibles : Credit bancaire par secteur institutionnel et objet economique, depots, agregats monetaires
 
-\- \*\*Variables disponibles\*\* : Crédit bancaire par secteur institutionnel et objet économique, dépôts, agrégats monétaires
+Format : XLSX (Open Data), API REST probablement JSON (portail developpeurs, a confirmer apres inscription)
 
-\- \*\*Format\*\* : XLSX (Open Data), API REST probablement JSON (portail développeurs, à confirmer après inscription)
+Frequence de mise a jour : mensuelle pour la plupart des series de credit
 
-\- \*\*Fréquence de mise à jour\*\* : mensuelle pour la plupart des séries de crédit
-
-\- \*\*Profondeur historique disponible\*\* : depuis décembre 2001
+Profondeur historique disponible : depuis decembre 2001
 
 
 
-\## Accès
+Licence / conditions d'utilisation : Open Data Commons Open Database License (ODbL)
 
-\- \*\*Licence / conditions d'utilisation\*\* : Open Data Commons Open Database License (ODbL)
+Automatisation possible : oui
 
-\- \*\*Automatisation possible ?\*\* : oui
-
-\- \*\*Méthode d'automatisation envisagée\*\* : API CKAN de data.gov.ma (téléchargement direct des fichiers XLSX)
+Methode d'automatisation envisagee : API CKAN de data.gov.ma (telechargement direct des fichiers XLSX)
 
 
 
-\## Qualité
+Niveau de qualite constate : structure complexe, format large (dates en colonnes), hierarchie categorie/secteur encodee par indentation Excel (pas de colonne dediee)
 
-\- \*\*Niveau de qualité constaté\*\* : structure complexe — format large (dates en colonnes), hiérarchie catégorie/secteur encodée par indentation Excel (pas de colonne 
-
-\- \*\*Difficultés particulières identifiées\*\* : nécessite un unpivot + lecture de l'indentation des cellules via openpyxl (pandas seul ne suffit pas)
+Difficultes particulieres identifiees : necessite un unpivot et une lecture de l'indentation des cellules via openpyxl (pandas seul ne suffit pas)
 
 
 
-\## Responsabilité
+Responsable du pipeline : Toi (Data/Stats/Finance)
 
-\- \*\*Responsable du pipeline\*\* : Toi (Data/Stats/Finance)
+Priorite pour le MVP : Haute
 
-\- \*\*Priorité pour le MVP\*\* : Haute
-
-\- \*\*Statut\*\* : Testé (fichier crédit bancaire déjà téléchargé et nettoyé avec succès, 6550 lignes)
+Statut : Teste (fichier credit bancaire deja telecharge et nettoye avec succes, 6550 lignes)
 
