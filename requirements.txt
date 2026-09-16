@@ -2,3 +2,7 @@
 requests
 openpyxl
 xlrd
+jupyter
+ipykernel
+matplotlib
+seaborn
