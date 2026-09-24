@@ -77,3 +77,17 @@ CREATE TABLE IF NOT EXISTS funds.souscriptions_rachats (
     type_operation VARCHAR(100),
     semaine_du DATE NOT NULL
 );
+
+DROP TABLE IF EXISTS funds.souscriptions_rachats;
+
+CREATE TABLE IF NOT EXISTS funds.souscriptions_rachats (
+    id SERIAL PRIMARY KEY,
+    type_operation VARCHAR(100),
+    actions NUMERIC(18,2),
+    contractuel NUMERIC(18,2),
+    diversifies NUMERIC(18,2),
+    monetaire NUMERIC(18,2),
+    obligations_ct NUMERIC(18,2),
+    obligations_mlt NUMERIC(18,2),
+    semaine_du DATE NOT NULL
+);
