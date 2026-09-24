@@ -36,3 +36,44 @@ CREATE TABLE IF NOT EXISTS operations.ingestion_runs (
     rows_inserted INTEGER,
     status VARCHAR(20)
 );
+
+CREATE SCHEMA IF NOT EXISTS funds;
+
+CREATE TABLE IF NOT EXISTS funds.actif_net (
+    id SERIAL PRIMARY KEY,
+    categorie VARCHAR(100),
+    nombre_opcvm INTEGER,
+    montant_mad NUMERIC(18,2),
+    structure_pct NUMERIC(6,2),
+    variation_hebdo_pct NUMERIC(8,4),
+    variation_mensuelle_pct NUMERIC(8,4),
+    variation_annuelle_pct NUMERIC(8,4),
+    semaine_du DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS funds.indices_performance (
+    id SERIAL PRIMARY KEY,
+    categorie VARCHAR(100),
+    indice NUMERIC(12,4),
+    variation_hebdo_pct NUMERIC(8,4),
+    variation_mensuelle_pct NUMERIC(8,4),
+    variation_annuelle_pct NUMERIC(8,4),
+    semaine_du DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS funds.actif_total (
+    id SERIAL PRIMARY KEY,
+    categorie VARCHAR(100),
+    montant_mad NUMERIC(18,2),
+    structure_pct NUMERIC(6,2),
+    variation_hebdo_pct NUMERIC(8,4),
+    variation_mensuelle_pct NUMERIC(8,4),
+    variation_annuelle_pct NUMERIC(8,4),
+    semaine_du DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS funds.souscriptions_rachats (
+    id SERIAL PRIMARY KEY,
+    type_operation VARCHAR(100),
+    semaine_du DATE NOT NULL
+);
