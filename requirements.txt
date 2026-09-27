@@ -9,3 +9,5 @@ seaborn
 selenium
 psycopg2-binary
 sqlalchemy
+fastapi
+uvicorn[standard]
