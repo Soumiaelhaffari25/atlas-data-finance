@@ -1,5 +1,3 @@
-﻿version: "3.9"
-
 services:
   postgres:
     image: postgres:16
@@ -13,6 +11,25 @@ services:
       - "5432:5432"
     volumes:
       - atlas_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U atlas_user -d atlas_finance"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    container_name: atlas_finance_api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+psycopg2://atlas_user:atlas_password@postgres:5432/atlas_finance
+    ports:
+      - "8888:8888"
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   atlas_pgdata:
